@@ -6,47 +6,15 @@
     <Transition
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
-        motion:duration="3000">
+        motion:duration="1000">
        <KeyFrameSet>
-            <KeyAttribute
-                motion:motionTarget="@+id/circle_image"
-                motion:framePosition="35"
-                android:alpha="1"/>
-           <KeyAttribute
-               motion:motionTarget="@+id/circle_image"
-               motion:framePosition="20"
-               android:alpha="0"/>
-           <KeyAttribute
-               motion:motionTarget="@+id/circle_image"
-               motion:framePosition="25"
-               android:alpha="0"/>
-           <KeyAttribute
-               motion:motionTarget="@+id/image"
-               motion:framePosition="35"
-               android:alpha="0"/>
-           <KeyAttribute
-               motion:motionTarget="@+id/image"
-               motion:framePosition="29"
-               android:alpha="0"/>
-           <KeyAttribute
-               motion:motionTarget="@+id/image"
-               motion:framePosition="20"
-               android:alpha="1"/>
        </KeyFrameSet>
 
-        <OnSwipe />
+        <OnSwipe motion:touchAnchorId="@+id/scroll"
+            motion:dragDirection="dragUp"/>
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
-        <Constraint
-            android:id="@+id/circle_image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:alpha="0"
-            motion:layout_constraintBottom_toBottomOf="@id/container"
-            motion:layout_constraintStart_toStartOf="@+id/container"
-            motion:layout_constraintEnd_toEndOf="@id/container"
-            motion:layout_constraintTop_toTopOf="@id/container"/>
         <Constraint
             android:id="@+id/image"
             android:layout_width="match_parent"
@@ -54,7 +22,33 @@
             motion:layout_constraintBottom_toBottomOf="@id/container"
             motion:layout_constraintStart_toStartOf="@+id/container"
             motion:layout_constraintEnd_toEndOf="@id/container"
-            motion:layout_constraintTop_toTopOf="@id/container"/>
+            motion:layout_constraintTop_toTopOf="@id/container">
+            <CustomAttribute
+                motion:attributeName="roundPercent"
+                motion:customFloatValue="0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/status"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="@dimen/margin_normal"
+            motion:layout_constraintStart_toStartOf="@id/container"
+            motion:layout_constraintBottom_toBottomOf="@+id/image" />
+        <Constraint
+            android:id="@+id/name"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            motion:layout_constraintBottom_toTopOf="@+id/status"
+            motion:layout_constraintStart_toStartOf="@id/container"/>
+        <Constraint
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:id="@+id/scroll"
+            motion:layout_constraintTop_toBottomOf="@+id/container" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
@@ -67,33 +61,36 @@
             motion:layout_constraintStart_toStartOf="parent" />
         <Constraint
             android:id="@+id/image"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:visibility="gone"
-            motion:layout_constraintTop_toBottomOf="@+id/back_arrow"
-            motion:layout_constraintStart_toStartOf="@+id/container"
-            motion:layout_constraintBaseline_toBottomOf="@id/container"
-            android:layout_marginStart="16dp" />
-        <Constraint
-            android:id="@+id/circle_image"
             android:layout_width="72dp"
             android:layout_height="72dp"
             motion:layout_constraintTop_toBottomOf="@+id/back_arrow"
             motion:layout_constraintStart_toStartOf="@+id/container"
-            motion:layout_constraintBaseline_toBottomOf="@id/container"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:alpha="1"
-            android:layout_marginBottom="8dp"
-            motion:layout_constraintVertical_bias="0.25" />
+            motion:layout_constraintBottom_toBottomOf="@id/container"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:layout_marginBottom="@dimen/margin_normal"
+            motion:layout_constraintVertical_bias="0.25">
+            <CustomAttribute
+                motion:attributeName="roundPercent"
+                motion:customFloatValue="1" />
+        </Constraint>
         <Constraint
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            motion:layout_constraintStart_toEndOf="@id/circle_image"
-            motion:layout_constraintTop_toTopOf="@+id/circle_image"
-            motion:layout_constraintBottom_toBottomOf="@+id/circle_image"
+            android:layout_marginStart="@dimen/margin_medium"
+            motion:layout_constraintStart_toEndOf="@id/image"
+            motion:layout_constraintTop_toTopOf="@+id/image"
+            motion:layout_constraintBottom_toBottomOf="@+id/image"
+            motion:layout_constraintVertical_bias="0.5"/>
+        <Constraint
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            motion:layout_constraintStart_toStartOf="@id/name"
+            motion:layout_constraintTop_toBottomOf="@+id/name"
+            motion:layout_constraintBottom_toBottomOf="@+id/image"
             motion:layout_constraintVertical_bias="0.5"/>
     </ConstraintSet>
 </MotionScene>

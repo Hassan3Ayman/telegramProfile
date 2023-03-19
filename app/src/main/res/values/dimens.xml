@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="container_height">300dp</dimen>
+    <dimen name="margin_normal">8dp</dimen>
+    <dimen name="text_size_normal">20sp</dimen>
+    <dimen name="subtile_size">16sp</dimen>
+    <dimen name="margin_medium">12dp</dimen>
+    <dimen name="margin_large">16dp</dimen>
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="divider2_height">12dp</dimen>
+</resources>

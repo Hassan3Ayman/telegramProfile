@@ -2,103 +2,230 @@
 <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/c"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/activity_main_scene"
     tools:context=".MainActivity">
+    
 
-
-    <ScrollView
-        android:id="@+id/scroll"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <View
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="#80000000"
+        android:layout_height="@dimen/container_height"
+        android:background="@color/container_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <ImageView
+    <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
+        app:roundPercent="1"
         app:layout_constraintBottom_toBottomOf="@id/container"
         app:layout_constraintStart_toStartOf="@+id/container"
         app:layout_constraintEnd_toEndOf="@id/container"
         app:layout_constraintTop_toTopOf="@id/container"
-        android:src="@drawable/man" />
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/circle_image"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/man"
-        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
-        app:layout_constraintBottom_toBottomOf="@id/container"
-        app:layout_constraintStart_toStartOf="@+id/container"
-        app:layout_constraintEnd_toEndOf="@id/container"
-        app:layout_constraintTop_toTopOf="@id/container" />
+        android:src="@drawable/image" />
 
     <ImageView
         android:id="@+id/back_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_normal"
         app:layout_constraintStart_toStartOf="@+id/container"
         app:layout_constraintTop_toTopOf="@id/container"
-        app:srcCompat="@drawable/arrow_back_24" />
+        app:srcCompat="@drawable/arrow_back_24"
+        app:tint="@color/white" />
 
     <ImageView
         android:id="@+id/more_vert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:layout_marginEnd="@dimen/margin_normal"
         app:layout_constraintEnd_toEndOf="@+id/container"
         app:layout_constraintTop_toTopOf="@id/container"
-        app:srcCompat="@drawable/baseline_more_vert_24" />
+        app:srcCompat="@drawable/baseline_more_vert_24"
+        app:tint="@color/white" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="Ahmed Hassan"
-        android:textColor="#998E5E5E"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@id/container"
-        app:layout_constraintTop_toBottomOf="@id/circle_image" />
+        android:text="The Chance"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="online"
-            app:layout_constraintStart_toStartOf="@id/name"
-            app:layout_constraintBottom_toBottomOf="@id/container"
-            app:layout_constraintEnd_toEndOf="@id/name"
-            app:layout_constraintTop_toBottomOf="@id/name"
-            app:layout_constraintHorizontal_bias="0"
-            android:textSize="16sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="12dp"/>
+            android:text="818 subscribers"
+            android:textSize="@dimen/subtile_size"
+            android:textColor="@color/subtitle_color"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:layout_marginBottom="@dimen/margin_medium"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/background_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="@string/info"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="@string/t_me_thechance101"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/info" />
+
+        <TextView
+            android:id="@+id/link2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:text="@string/invite_lilk"
+            android:textColor="@color/subtitle_color"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/link" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:src="@drawable/baseline_qr_code_24"
+            app:layout_constraintBottom_toBottomOf="@id/link2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/link"
+            app:tint="@color/white" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/margin_large"
+            android:background="@color/divider_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/link2" />
+
+
+        <TextView
+            android:id="@+id/notfy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="notifications"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/divider" />
+
+        <TextView
+            android:id="@+id/st"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:text="@string/on"
+            android:textColor="@color/subtitle_color"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notfy" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:checked="true"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/st"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/notfy"/>
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider2_height"
+            android:layout_marginTop="@dimen/margin_large"
+            android:background="@color/divider_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/st" />
+
+
+        <TextView
+            android:id="@+id/media"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="@string/media"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/media"
+            app:layout_constraintStart_toStartOf="@id/media"
+            app:layout_constraintTop_toBottomOf="@id/media" />
+
+        <TextView
+            android:id="@+id/files"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/files"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toEndOf="@+id/media"
+            app:layout_constraintTop_toTopOf="@+id/media"
+            app:layout_constraintEnd_toStartOf="@id/links"
+            app:layout_constraintHorizontal_bias=".5"/>
+
+        <TextView
+            android:id="@+id/links"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/links"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/files"
+            app:layout_constraintTop_toTopOf="@+id/files" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

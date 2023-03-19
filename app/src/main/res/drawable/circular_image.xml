@@ -5,5 +5,5 @@
             <solid android:color="@android:color/transparent"/>
         </shape>
     </item>
-    <item android:drawable="@drawable/man" />
+    <item android:drawable="@drawable/image" />
 </layer-list>
