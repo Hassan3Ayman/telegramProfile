@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:text="The Chance"
         android:textColor="@color/title_color"
-        android:textSize="@dimen/text_size_normal"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -144,7 +144,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_large"
             android:layout_marginTop="@dimen/margin_medium"
-            android:text="notifications"
+            android:text="@string/notifications"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_normal"
             app:layout_constraintStart_toStartOf="parent"

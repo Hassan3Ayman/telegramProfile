@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="container_height">300dp</dimen>
+    <dimen name="container_height">296dp</dimen>
     <dimen name="margin_normal">8dp</dimen>
     <dimen name="text_size_normal">20sp</dimen>
     <dimen name="subtile_size">16sp</dimen>
